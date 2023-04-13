@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.tela-entrada {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+
+.logo-entrada {
+    width: 140px;
+    height: 102px;
+    margin: 90px 0 100px 0;
+}
+
+.input-entrada {
+    width: 261px;
+    height: 54px;
+    background: #FFFFFF;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    color: #AEAEAE;
+}
+
+.botao-entrada {
+    width: 109px;
+    height: 45px;
+    background: #E7E7E7;
+    border-radius: 9px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    color: #696969;
+}
+
+.cabecalho {
+    width: 100%;
+    height: 80px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 23px 0 23px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.mensagens {
+    width: 100%;
+    position: absolute;
+    top: 100px;
+    left: 0;
+}
+
+.msg-portaria {
+    background-color: #DCDCDC;
+    width: 100%;
+    height: 40px;
+    padding: 0 9px 0 9px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.msg-normal {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 40px;
+    padding: 0 9px 0 9px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.msg-reservada {
+    background-color: #FFDEDE;
+    width: 100%;
+    height: 65px;
+    padding: 0 9px 0 9px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    line-height: 20px;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.horario {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #AAAAAA;
+}
+
+.nome {
+    font-weight: bold;
+}
+
+.rodape {
+    width: 100%;
+    height: 80px;
+    background: #FFFFFF;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px 0 18px;
+}
+
+.input-rodape {
+    width: 85%;
+    height: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: italic;
+    border: none;
+}
+
+.input-rodape::placeholder {
+    color: #000000;
+}
+
+.logo-cabecalho {
+    width: 75px;
+    height: 53px;
+}
+
+.logo-usuarios {
+    width: 43px;
+    height: 31px;
+}
+
+.escondido {
+    display: none;
+}
+
+.cinza {
+    background-color: #F3F3F3;
+}
