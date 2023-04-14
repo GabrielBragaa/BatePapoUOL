@@ -77,7 +77,6 @@ function mandaNome() {
     const novoNome = {name: nomeDigitado.value};
     let usuarios = axios.post('https://mock-api.driven.com.br/api/vm/uol/participants', novoNome);
     usuarios.then(sucessoNome);
-    enviarMensagem();
     buscaMensagem();
     someTelaEntrada();
     usuarios.catch(erroNome);

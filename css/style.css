@@ -65,7 +65,7 @@ body {
 
 .mensagens {
     width: 100%;
-    position: relative;
+    position: absolute;
     top: 90px;
     left: 0;
     padding: 0 0 80px 0;
@@ -87,7 +87,7 @@ body {
 .msg-normal {
     background-color: #FFFFFF;
     width: 100%;
-    height: 40px;
+    word-break: break-word;
     padding: 0 9px 0 9px;
     display: flex;
     align-items: center;
