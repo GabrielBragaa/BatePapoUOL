@@ -10,17 +10,22 @@ function renderizaMsg(array) {
     let mensagens = array.data;
     for (let i = 0; i < mensagens.length; i++) {
         if (mensagens[i].type === "message") {
-            layout.innerHTML += `<div class="msg-normal"><p><span class="horario">(${mensagens[i].time})</span>  <span class="nome">${mensagens[i].from}</span> para <span class="nome">${mensagens[i].to}</span>: ${mensagens[i].text}</p></div>`
+            layout.innerHTML += `<div class="msg-normal" data-test="message"><p><span class="horario">(${mensagens[i].time})</span>  <span class="nome">${mensagens[i].from}</span> para <span class="nome">${mensagens[i].to}</span>: ${mensagens[i].text}</p></div>`
         } else if (mensagens[i].type === "status") {
-            layout.innerHTML += `<div class="msg-portaria"><p><span class="horario">(${mensagens[i].time})</span>  <span class="nome">${mensagens[i].from}</span>  ${mensagens[i].text}</p></div>`
+            layout.innerHTML += `<div class="msg-portaria" data-test="message"><p><span class="horario">(${mensagens[i].time})</span>  <span class="nome">${mensagens[i].from}</span>  ${mensagens[i].text}</p></div>`
         }
     }
     atualizaMsg();
 }
 
+function erroMsg(erro) {
+    window.location.reload();
+}
+
 function buscaMensagem() {
     const promiseRecebe = axios.get('https://mock-api.driven.com.br/api/vm/uol/messages');
     promiseRecebe.then(renderizaMsg);
+    promiseRecebe.catch(erroMsg);
 }
 
 function respostaMsg() {
