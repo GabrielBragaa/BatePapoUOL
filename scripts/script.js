@@ -1,11 +1,12 @@
 axios.defaults.headers.common['Authorization'] = 'sqTg9AiJoy0kppzmztZ9cCvk';
 
 function atualizaMsg() {
-    setInterval(buscaMensagem, 2000);
+    setInterval(buscaMensagem, 5000);
 }
 
 function renderizaMsg(array) {
     const layout = document.querySelector('.mensagens');
+    layout.innerHTML = '';
     let mensagens = array.data;
     for (let i = 0; i < mensagens.length; i++) {
         if (mensagens[i].type === "message") {
@@ -14,6 +15,7 @@ function renderizaMsg(array) {
             layout.innerHTML += `<div class="msg-portaria"><p><span class="horario">(${mensagens[i].time})</span>  <span class="nome">${mensagens[i].from}</span>  ${mensagens[i].text}</p></div>`
         }
     }
+    atualizaMsg();
 }
 
 function buscaMensagem() {
@@ -24,7 +26,6 @@ function buscaMensagem() {
 function respostaMsg() {
     let msgDigitada = document.querySelector('.input-rodape');
     msgDigitada.value = '';
-
 }
 
 function enviarMensagem() {

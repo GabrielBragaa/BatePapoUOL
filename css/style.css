@@ -60,13 +60,15 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1;
 }
 
 .mensagens {
     width: 100%;
-    position: absolute;
-    top: 100px;
+    position: relative;
+    top: 90px;
     left: 0;
+    bottom: 90px;
 }
 
 .msg-portaria {
@@ -131,6 +133,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0 18px 0 18px;
+    z-index: 1;
 }
 
 .input-rodape {
