@@ -42,6 +42,7 @@ function enviarMensagem() {
 	type: "message"}
     const promise = axios.post('https://mock-api.driven.com.br/api/vm/uol/messages', novaMsg);
     promise.then(respostaMsg);
+    promise.catch(erroMsg);
 }
 
 function verificaStatus() {
@@ -76,6 +77,7 @@ function mandaNome() {
     const novoNome = {name: nomeDigitado.value};
     let usuarios = axios.post('https://mock-api.driven.com.br/api/vm/uol/participants', novoNome);
     usuarios.then(sucessoNome);
+    enviarMensagem();
     buscaMensagem();
     someTelaEntrada();
     usuarios.catch(erroNome);
