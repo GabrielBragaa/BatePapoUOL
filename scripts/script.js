@@ -1,7 +1,7 @@
 axios.defaults.headers.common['Authorization'] = 'sqTg9AiJoy0kppzmztZ9cCvk';
 
 function atualizaMsg() {
-    setInterval(buscaMensagem, 5000);
+    setInterval(buscaMensagem, 3000);
 }
 
 function renderizaMsg(array) {
@@ -67,18 +67,17 @@ function erroNome() {
     alert('Esse usuário já existe! Digite outro nome.')
 }
 
-function nomeCadastrado() {
-    const promiseRecebe = axios.get('https://mock-api.driven.com.br/api/vm/uol/participants');
-    console.log('Cadastrado!');
-    someTelaEntrada();
-    buscaMensagem();
+function sucessoNome() {
+    alert('Nome cadastrado com sucesso!');
 }
 
 function mandaNome() {
     const nomeDigitado = document.querySelector('.input-entrada');
     const novoNome = {name: nomeDigitado.value};
     let usuarios = axios.post('https://mock-api.driven.com.br/api/vm/uol/participants', novoNome);
-    usuarios.then(nomeCadastrado);
+    usuarios.then(sucessoNome);
+    buscaMensagem();
+    someTelaEntrada();
     usuarios.catch(erroNome);
-    statusUsuario();
+    statusUsuario(); 
 }
