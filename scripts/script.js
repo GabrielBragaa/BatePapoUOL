@@ -1,13 +1,20 @@
 axios.defaults.headers.common['Authorization'] = 'sqTg9AiJoy0kppzmztZ9cCvk';
 
-function renderizaMsg(array) {
-    let layout = document.querySelector('.mensagens');
-    layout.innerHTML = '';
-    let hora = array.data.time;
-    console.log(array.data[0].time);
-    layout.innerHTML = `<div class="msg-normal"><p><span class="horario">${hora}</span>  <span class="nome">${array.data.from}</span> para <span class="nome">${array.data.to}</span>:  ${array.data.text}</p></div>`
+function atualizaMsg() {
+    setInterval(buscaMensagem, 2000);
 }
 
+function renderizaMsg(array) {
+    const layout = document.querySelector('.mensagens');
+    let mensagens = array.data;
+    for (let i = 0; i < mensagens.length; i++) {
+        if (mensagens[i].type === "message") {
+            layout.innerHTML += `<div class="msg-normal"><p><span class="horario">(${mensagens[i].time})</span>  <span class="nome">${mensagens[i].from}</span> para <span class="nome">${mensagens[i].to}</span>: ${mensagens[i].text}</p></div>`
+        } else if (mensagens[i].type === "status") {
+            layout.innerHTML += `<div class="msg-portaria"><p><span class="horario">(${mensagens[i].time})</span>  <span class="nome">${mensagens[i].from}</span>  ${mensagens[i].text}</p></div>`
+        }
+    }
+}
 
 function buscaMensagem() {
     const promiseRecebe = axios.get('https://mock-api.driven.com.br/api/vm/uol/messages');
