@@ -18,9 +18,23 @@ function renderizaMsg(array) {
     let mensagens = array.data;
     for (let i = 0; i < mensagens.length; i++) {
         if (mensagens[i].type === "message") {
-            layout.innerHTML += `<div class="msg-normal" data-test="message"><p><span class="horario">(${mensagens[i].time})</span>  <span class="nome">${mensagens[i].from}</span> para <span class="nome">${mensagens[i].to}</span>: ${mensagens[i].text}</p></div>`
+            layout.innerHTML += 
+            `<div class="msg-normal" data-test="message">
+                <p>
+                    <span class="horario">(${mensagens[i].time})</span>  
+                    <span class="nome">${mensagens[i].from}</span> 
+                    para 
+                    <span class="nome">${mensagens[i].to}</span>: ${mensagens[i].text}
+                </p>
+            </div>`
         } else if (mensagens[i].type === "status") {
-            layout.innerHTML += `<div class="msg-portaria" data-test="message"><p><span class="horario">(${mensagens[i].time})</span>  <span class="nome">${mensagens[i].from}</span>  ${mensagens[i].text}</p></div>`
+            layout.innerHTML += 
+            `<div class="msg-portaria" data-test="message">
+                <p>
+                    <span class="horario">(${mensagens[i].time})</span>  
+                    <span class="nome">${mensagens[i].from}</span>  ${mensagens[i].text}
+                </p>
+            </div>`
         }
     }
     atualizaMsg();
@@ -50,6 +64,7 @@ function enviarMensagem() {
 	type: "message"}
     const promise = axios.post('https://mock-api.driven.com.br/api/vm/uol/messages', novaMsg);
     promise.then(respostaMsg);
+    promise.then(buscaMensagem);
     promise.catch(erroMsg);
 }
 
@@ -85,8 +100,8 @@ function mandaNome() {
     const novoNome = {name: nomeDigitado.value};
     let usuarios = axios.post('https://mock-api.driven.com.br/api/vm/uol/participants', novoNome);
     usuarios.then(sucessoNome);
-    buscaMensagem();
-    someTelaEntrada();
+    usuarios.then(buscaMensagem);
+    usuarios.then(someTelaEntrada);
+    usuarios.then(statusUsuario)
     usuarios.catch(erroNome);
-    statusUsuario(); 
 }
