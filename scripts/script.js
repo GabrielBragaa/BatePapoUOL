@@ -1,4 +1,12 @@
 axios.defaults.headers.common['Authorization'] = 'sqTg9AiJoy0kppzmztZ9cCvk';
+const enter = document.querySelector('.input-rodape'); 
+
+enter.addEventListener("keypress", function(event) {
+    if (event.keyCode === 13) { 
+        event.preventDefault();
+        document.querySelector('.botao-enviar').click(); 
+    }
+})
 
 function atualizaMsg() {
     setInterval(buscaMensagem, 3000);
